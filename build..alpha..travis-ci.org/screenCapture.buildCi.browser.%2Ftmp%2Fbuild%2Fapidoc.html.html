@@ -1,0 +1,875 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a>sails-rest (v0.1.1)</a>
+</h1>
+<h4>rest adapter for Sails / Waterline</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-rest">module sails-rest</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">sails-rest.</span>syncable</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.create">
+            function <span class="apidocSignatureSpan">sails-rest.</span>create
+            <span class="apidocSignatureSpan">(connection, collection, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.destroy">
+            function <span class="apidocSignatureSpan">sails-rest.</span>destroy
+            <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.find">
+            function <span class="apidocSignatureSpan">sails-rest.</span>find
+            <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.registerConnection">
+            function <span class="apidocSignatureSpan">sails-rest.</span>registerConnection
+            <span class="apidocSignatureSpan">(connection, collections, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.teardown">
+            function <span class="apidocSignatureSpan">sails-rest.</span>teardown
+            <span class="apidocSignatureSpan">(conn, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.update">
+            function <span class="apidocSignatureSpan">sails-rest.</span>update
+            <span class="apidocSignatureSpan">(connection, collection, options, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-rest.</span>adapter</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-rest.</span>connection</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-rest.</span>defaults</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-rest.adapter">module sails-rest.adapter</a><ol>
+
+        <li>
+
+            <span class="apidocSignatureSpan">boolean <span class="apidocSignatureSpan">sails-rest.adapter.</span>syncable</span>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.adapter.create">
+            function <span class="apidocSignatureSpan">sails-rest.adapter.</span>create
+            <span class="apidocSignatureSpan">(connection, collection, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.adapter.destroy">
+            function <span class="apidocSignatureSpan">sails-rest.adapter.</span>destroy
+            <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.adapter.find">
+            function <span class="apidocSignatureSpan">sails-rest.adapter.</span>find
+            <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.adapter.registerConnection">
+            function <span class="apidocSignatureSpan">sails-rest.adapter.</span>registerConnection
+            <span class="apidocSignatureSpan">(connection, collections, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.adapter.teardown">
+            function <span class="apidocSignatureSpan">sails-rest.adapter.</span>teardown
+            <span class="apidocSignatureSpan">(conn, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.adapter.update">
+            function <span class="apidocSignatureSpan">sails-rest.adapter.</span>update
+            <span class="apidocSignatureSpan">(connection, collection, options, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sails-rest.adapter.</span>defaults</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sails-rest.connection">module sails-rest.connection</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.connection.create">
+            function <span class="apidocSignatureSpan">sails-rest.connection.</span>create
+            <span class="apidocSignatureSpan">(connection, collection, values, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.connection.destroy">
+            function <span class="apidocSignatureSpan">sails-rest.connection.</span>destroy
+            <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.connection.find">
+            function <span class="apidocSignatureSpan">sails-rest.connection.</span>find
+            <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.sails-rest.connection.update">
+            function <span class="apidocSignatureSpan">sails-rest.connection.</span>update
+            <span class="apidocSignatureSpan">(connection, collection, options, values, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-rest" id="apidoc.module.sails-rest">module sails-rest</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.create" id="apidoc.element.sails-rest.create">
+        function <span class="apidocSignatureSpan">sails-rest.</span>create
+        <span class="apidocSignatureSpan">(connection, collection, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (connection, collection, values, cb) {
+  return Connection.create(connections[connection], collection, values, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+ *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+ * @param {Array&lt;Object&gt;} values - values of records to create.
+ * @param {Function} cb - function to call with query results.
+ */
+create: function (connection, collection, values, cb) {
+  return Connection.<span class="apidocCodeKeywordSpan">create</span>(connections[connection], collection, values, cb);
+},
+
+/**
+ * Update record(s)
+ * @param {String} connection - connection identifier
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.destroy" id="apidoc.element.sails-rest.destroy">
+        function <span class="apidocSignatureSpan">sails-rest.</span>destroy
+        <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (connection, collection, options, cb) {
+  return Connection.destroy(connections[connection], collection, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   * @param {String} collection - collection name. appended to API pathname.
+   *                              For example, given the api `http://localhost:8080/api/v1`,
+   *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+   * @param {Object} options - query options object. contains query conditions (`where`), sort, limit etc. as per Waterline'
+;s API.
+   * @param {Function} cb - function to call with query results.
+   */
+  destroy: function (connection, collection, options, cb) {
+    return Connection.<span class="apidocCodeKeywordSpan">destroy</span>(connections[connection], collection, options, cb);
+  }
+
+};
+
+
+// Expose adapter definition
+return adapter;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.find" id="apidoc.element.sails-rest.find">
+        function <span class="apidocSignatureSpan">sails-rest.</span>find
+        <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (connection, collection, options, cb) {
+  return Connection.find(connections[connection], collection, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+ *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+ * @param {Object} options - query options object. contains query conditions (`where`), sort, limit etc. as per Waterline's
+ API.
+ * @param {Function} cb - function to call with query results.
+ */
+find: function (connection, collection, options, cb) {
+  return Connection.<span class="apidocCodeKeywordSpan">find</span>(connections[connection], collection, options, cb);
+},
+
+/**
+ * Create record(s)
+ * @param {String} connection - connection identifier
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.registerConnection" id="apidoc.element.sails-rest.registerConnection">
+        function <span class="apidocSignatureSpan">sails-rest.</span>registerConnection
+        <span class="apidocSignatureSpan">(connection, collections, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerConnection = function (connection, collections, cb) {
+  var config = {
+    hooks: {},
+    methods: {
+      create: 'post',
+      find: 'get',
+      update: 'put',
+      destroy: 'del'
+    },
+    headers: connection.headers || {}
+  };
+  if(!connection.identity) return cb(new Error('Connection is missing an identity.'));
+  if(connections[connection.identity]) return cb(new Error('Connection is already registered.'));
+
+  // Add in logic here to initialize connection
+  // e.g. connections[connection.identity] = new Database(connection, collections);
+  config.endpoint = url.format({
+    host: connection.host,
+    pathname: connection.pathname,
+    protocol: connection.protocol
+  });
+  config.http = connection.http || {};
+  config.methods = _.extend(config.methods, (connection.methods || {}));
+
+  if(connection.hooks.merge) {
+    config.hooks.before = hooks.before.concat(connection.hooks.before || []);
+    config.hooks.after = hooks.after.concat(connection.hooks.after || []);
+  } else {
+    config.hooks.before = connection.hooks.before || [];
+    config.hooks.after = connection.hooks.after || [];
+  }
+
+  connections[connection.identity] = config;
+
+  cb();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.teardown" id="apidoc.element.sails-rest.teardown">
+        function <span class="apidocSignatureSpan">sails-rest.</span>teardown
+        <span class="apidocSignatureSpan">(conn, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">teardown = function (conn, cb) {
+
+  if (typeof conn == 'function') {
+    cb = conn;
+    conn = null;
+  }
+  if (!conn) {
+    connections = {};
+    return cb();
+  }
+  if(!connections[conn]) return cb();
+  delete connections[conn];
+  cb();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.update" id="apidoc.element.sails-rest.update">
+        function <span class="apidocSignatureSpan">sails-rest.</span>update
+        <span class="apidocSignatureSpan">(connection, collection, options, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (connection, collection, options, values, cb) {
+  return Connection.update(connections[connection], collection, options, values, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+ *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+ * @param {Object} options - query options object. contains query conditions (`where`), sort, limit etc. as per Waterline's
+ API.
+ * @param {Array&lt;Object&gt;} values - values of records to create.
+ * @param {Function} cb - function to call with query results.
+ */
+update: function (connection, collection, options, values, cb) {
+  return Connection.<span class="apidocCodeKeywordSpan">update</span>(connections[connection], collection, options, values, cb);
+},
+
+/**
+ * Destroy record(s)
+ * @param {String} connection - connection identifier
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-rest.adapter" id="apidoc.module.sails-rest.adapter">module sails-rest.adapter</a></h1>
+
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.adapter.create" id="apidoc.element.sails-rest.adapter.create">
+        function <span class="apidocSignatureSpan">sails-rest.adapter.</span>create
+        <span class="apidocSignatureSpan">(connection, collection, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (connection, collection, values, cb) {
+  return Connection.create(connections[connection], collection, values, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+ *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+ * @param {Array&lt;Object&gt;} values - values of records to create.
+ * @param {Function} cb - function to call with query results.
+ */
+create: function (connection, collection, values, cb) {
+  return Connection.<span class="apidocCodeKeywordSpan">create</span>(connections[connection], collection, values, cb);
+},
+
+/**
+ * Update record(s)
+ * @param {String} connection - connection identifier
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.adapter.destroy" id="apidoc.element.sails-rest.adapter.destroy">
+        function <span class="apidocSignatureSpan">sails-rest.adapter.</span>destroy
+        <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (connection, collection, options, cb) {
+  return Connection.destroy(connections[connection], collection, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   * @param {String} collection - collection name. appended to API pathname.
+   *                              For example, given the api `http://localhost:8080/api/v1`,
+   *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+   * @param {Object} options - query options object. contains query conditions (`where`), sort, limit etc. as per Waterline'
+;s API.
+   * @param {Function} cb - function to call with query results.
+   */
+  destroy: function (connection, collection, options, cb) {
+    return Connection.<span class="apidocCodeKeywordSpan">destroy</span>(connections[connection], collection, options, cb);
+  }
+
+};
+
+
+// Expose adapter definition
+return adapter;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.adapter.find" id="apidoc.element.sails-rest.adapter.find">
+        function <span class="apidocSignatureSpan">sails-rest.adapter.</span>find
+        <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (connection, collection, options, cb) {
+  return Connection.find(connections[connection], collection, options, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+ *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+ * @param {Object} options - query options object. contains query conditions (`where`), sort, limit etc. as per Waterline's
+ API.
+ * @param {Function} cb - function to call with query results.
+ */
+find: function (connection, collection, options, cb) {
+  return Connection.<span class="apidocCodeKeywordSpan">find</span>(connections[connection], collection, options, cb);
+},
+
+/**
+ * Create record(s)
+ * @param {String} connection - connection identifier
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.adapter.registerConnection" id="apidoc.element.sails-rest.adapter.registerConnection">
+        function <span class="apidocSignatureSpan">sails-rest.adapter.</span>registerConnection
+        <span class="apidocSignatureSpan">(connection, collections, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerConnection = function (connection, collections, cb) {
+  var config = {
+    hooks: {},
+    methods: {
+      create: 'post',
+      find: 'get',
+      update: 'put',
+      destroy: 'del'
+    },
+    headers: connection.headers || {}
+  };
+  if(!connection.identity) return cb(new Error('Connection is missing an identity.'));
+  if(connections[connection.identity]) return cb(new Error('Connection is already registered.'));
+
+  // Add in logic here to initialize connection
+  // e.g. connections[connection.identity] = new Database(connection, collections);
+  config.endpoint = url.format({
+    host: connection.host,
+    pathname: connection.pathname,
+    protocol: connection.protocol
+  });
+  config.http = connection.http || {};
+  config.methods = _.extend(config.methods, (connection.methods || {}));
+
+  if(connection.hooks.merge) {
+    config.hooks.before = hooks.before.concat(connection.hooks.before || []);
+    config.hooks.after = hooks.after.concat(connection.hooks.after || []);
+  } else {
+    config.hooks.before = connection.hooks.before || [];
+    config.hooks.after = connection.hooks.after || [];
+  }
+
+  connections[connection.identity] = config;
+
+  cb();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.adapter.teardown" id="apidoc.element.sails-rest.adapter.teardown">
+        function <span class="apidocSignatureSpan">sails-rest.adapter.</span>teardown
+        <span class="apidocSignatureSpan">(conn, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">teardown = function (conn, cb) {
+
+  if (typeof conn == 'function') {
+    cb = conn;
+    conn = null;
+  }
+  if (!conn) {
+    connections = {};
+    return cb();
+  }
+  if(!connections[conn]) return cb();
+  delete connections[conn];
+  cb();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.adapter.update" id="apidoc.element.sails-rest.adapter.update">
+        function <span class="apidocSignatureSpan">sails-rest.adapter.</span>update
+        <span class="apidocSignatureSpan">(connection, collection, options, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (connection, collection, options, values, cb) {
+  return Connection.update(connections[connection], collection, options, values, cb);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+ *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+ * @param {Object} options - query options object. contains query conditions (`where`), sort, limit etc. as per Waterline's
+ API.
+ * @param {Array&lt;Object&gt;} values - values of records to create.
+ * @param {Function} cb - function to call with query results.
+ */
+update: function (connection, collection, options, values, cb) {
+  return Connection.<span class="apidocCodeKeywordSpan">update</span>(connections[connection], collection, options, values, cb);
+},
+
+/**
+ * Destroy record(s)
+ * @param {String} connection - connection identifier
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sails-rest.connection" id="apidoc.module.sails-rest.connection">module sails-rest.connection</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.connection.create" id="apidoc.element.sails-rest.connection.create">
+        function <span class="apidocSignatureSpan">sails-rest.connection.</span>create
+        <span class="apidocSignatureSpan">(connection, collection, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">create = function (connection, collection, values, cb) {
+  var config = {},
+    req,
+    conn = {
+      connection: connection,
+      collection: collection,
+      options: {},
+      values: values
+    };
+  runBeforeHooks(req, 'create', config, conn, function (err, req) {
+    if(err) {
+      return cb(err);
+    }
+    return req.send(conn.values).end(getResponseHandler(conn.connection, cb));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+ *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+ * @param {Array&lt;Object&gt;} values - values of records to create.
+ * @param {Function} cb - function to call with query results.
+ */
+create: function (connection, collection, values, cb) {
+  return Connection.<span class="apidocCodeKeywordSpan">create</span>(connections[connection], collection, values, cb);
+},
+
+/**
+ * Update record(s)
+ * @param {String} connection - connection identifier
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.connection.destroy" id="apidoc.element.sails-rest.connection.destroy">
+        function <span class="apidocSignatureSpan">sails-rest.connection.</span>destroy
+        <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (connection, collection, options, cb) {
+  var config = {},
+    req,
+    conn = {
+      connection: connection,
+      collection: collection,
+      options: options,
+      values: {}
+    };
+  runBeforeHooks(req, 'destroy', config, conn, function (err, req) {
+    if(err) {
+      return cb(err);
+    }
+    return req.query(conn.options).end(getResponseHandler(conn.connection, cb));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+   * @param {String} collection - collection name. appended to API pathname.
+   *                              For example, given the api `http://localhost:8080/api/v1`,
+   *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+   * @param {Object} options - query options object. contains query conditions (`where`), sort, limit etc. as per Waterline'
+;s API.
+   * @param {Function} cb - function to call with query results.
+   */
+  destroy: function (connection, collection, options, cb) {
+    return Connection.<span class="apidocCodeKeywordSpan">destroy</span>(connections[connection], collection, options, cb);
+  }
+
+};
+
+
+// Expose adapter definition
+return adapter;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.connection.find" id="apidoc.element.sails-rest.connection.find">
+        function <span class="apidocSignatureSpan">sails-rest.connection.</span>find
+        <span class="apidocSignatureSpan">(connection, collection, options, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">find = function (connection, collection, options, cb) {
+  var config = {},
+      req,
+      conn = {
+        connection: connection,
+        collection: collection,
+        options: options,
+        values: {}
+      };
+  runBeforeHooks(req, 'find', config, conn, function (err, req) {
+    if(err) {
+      return cb(err);
+    }
+    return req.query(conn.options).end(function (err, res) {
+      if (res) {
+        err = null;
+      }
+      // Waterline requires that `find` will return an array.
+      // Here we ensure that response body is converted to an array if required.
+      if(!err){
+        if(!Array.isArray(res.body)){
+          res.body = [res.body];
+        }
+      }
+      handleResponse(conn.connection, err, res, cb);
+    });
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+ *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+ * @param {Object} options - query options object. contains query conditions (`where`), sort, limit etc. as per Waterline's
+ API.
+ * @param {Function} cb - function to call with query results.
+ */
+find: function (connection, collection, options, cb) {
+  return Connection.<span class="apidocCodeKeywordSpan">find</span>(connections[connection], collection, options, cb);
+},
+
+/**
+ * Create record(s)
+ * @param {String} connection - connection identifier
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.sails-rest.connection.update" id="apidoc.element.sails-rest.connection.update">
+        function <span class="apidocSignatureSpan">sails-rest.connection.</span>update
+        <span class="apidocSignatureSpan">(connection, collection, options, values, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">update = function (connection, collection, options, values, cb) {
+  var config = {},
+    req,
+    conn = {
+      connection: connection,
+      collection: collection,
+      options: options,
+      values: values
+    };
+  runBeforeHooks(req, 'update', config, conn, function (err, req) {
+    if(err) {
+      return cb(err);
+    }
+    return req.query(conn.options).send(conn.values).end(getResponseHandler(conn.connection, cb));
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+ *                              a collection named `user` will resolve to `http://localhost:8080/api/v1/user`.
+ * @param {Object} options - query options object. contains query conditions (`where`), sort, limit etc. as per Waterline's
+ API.
+ * @param {Array&lt;Object&gt;} values - values of records to create.
+ * @param {Function} cb - function to call with query results.
+ */
+update: function (connection, collection, options, values, cb) {
+  return Connection.<span class="apidocCodeKeywordSpan">update</span>(connections[connection], collection, options, values, cb);
+},
+
+/**
+ * Destroy record(s)
+ * @param {String} connection - connection identifier
+ * @param {String} collection - collection name. appended to API pathname.
+ *                              For example, given the api `http://localhost:8080/api/v1`,
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
